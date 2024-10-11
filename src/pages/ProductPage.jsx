@@ -50,12 +50,12 @@ export function Product() {
 
     return (
         <div className="product-details text-center" id={data.id}>
-            <img src={data.image.url} alt={data.title} className="mx-auto size-60" />
+            <img src={data.image.url} alt={data.title} className="mx-auto size-60 md:size-80 lg:size-96" />
             
-            <div><strong>{data.title}</strong></div>
+            <h1 className="text-xl lg:text-3xl my-2"><strong>{data.title}</strong></h1>
             <div>{data.description}</div>
 
-            <div className="price">
+            <div className="price my-2">
                 {isDiscounted ? (
                     <>
                         <span className="text-red-500 text-lg font-bold">
@@ -73,18 +73,18 @@ export function Product() {
                 )}
             </div>
 
-            <div className="flex justify-center">
+            <div className="flex justify-center my-4">
                 <h1 className="me-2">Rating:</h1>
                 <Star /> {data.rating}
             </div>
 
-            <div className="reviews">
+            <div className="reviews my-4">
                 <h3>Reviews:</h3>
                 {data.reviews && data.reviews.length > 0 ? (
                     data.reviews.map((review) => (
-                        <div key={review.id} className="review mb-4 border p-2 rounded">
+                        <div key={review.id} className="review mb-4 border p-2 rounded my-2">
                             <div><strong>Username:</strong> {review.username}</div>
-                            <div className="flex">
+                            <div className="flex justify-center my-2">
                                 <strong>Rating:</strong> <Star /> {review.rating}
                             </div>
                             <div><strong>Review:</strong> {review.description}</div>
