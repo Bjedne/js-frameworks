@@ -33,7 +33,7 @@ export function Home() {
   }, []);
 
   if (isLoading) {
-    return <div>Loading...</div>;
+    return <div className="ms-3">Loading...</div>;
 }
 
 if (isError) {
