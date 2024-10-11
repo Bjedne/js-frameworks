@@ -5,6 +5,7 @@ import { Footer } from './layouts/footer';
 import { Header } from './layouts/header';
 import { Home } from "./pages/home.jsx";
 import { Checkout } from './pages/CheckoutSuccess.jsx';
+import { Product } from './pages/ProductPage.jsx';
 
 function RouteNotFound() {
   return <div>Page not found</div>
@@ -16,6 +17,7 @@ function App() {
       <Header />
     <Routes>
       <Route index element={<Home />} />
+      <Route path="product/:id" element={<Product />} />
       <Route path="contact" element={<Contact />} />
       <Route path="checkout" element={<Checkout />} />
       <Route path="*" element={<RouteNotFound />} />

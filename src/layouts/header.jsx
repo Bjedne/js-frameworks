@@ -35,7 +35,10 @@ export function Header() {
                         </li>
                         <li>
                             <Link to="/contact">Contact Us</Link>
-                        </li> 
+                        </li>
+                        <li>
+                            <Link to="/product/1">Product</Link>
+                        </li>
                     </ul>
                 </nav>
 
