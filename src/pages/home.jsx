@@ -1,25 +1,25 @@
 import { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom'; // Import useNavigate for navigation
+import { useNavigate } from 'react-router-dom';
 
 const url = "https://v2.api.noroff.dev/online-shop";
 
 export function Home() {
   const [posts, setPosts] = useState([]);
-  const navigate = useNavigate(); // Initialize useNavigate for programmatic navigation
+  const navigate = useNavigate();
   
   useEffect(() => {
     async function getData() {
       const response = await fetch(url);
       const json = await response.json();
       
-      setPosts(json.data); // Update this to handle the API response properly
+      setPosts(json.data);
     }
     getData();
   }, []);
 
-  // Handle button click to navigate to product page
+
   const handleViewProduct = (id) => {
-    navigate(`/product/${id}`); // Navigate to the product page using the id
+    navigate(`/product/${id}`); 
   };
 
   return (
@@ -31,7 +31,7 @@ export function Home() {
           <p>$ {post.price}</p>
           <button 
             className="bg-teal-100 p-1 rounded-lg w-1/2 m-auto"
-            onClick={() => handleViewProduct(post.id)} // Navigate to individual product page on button click
+            onClick={() => handleViewProduct(post.id)}
           >
             View product
           </button>
