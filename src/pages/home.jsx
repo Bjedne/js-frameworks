@@ -5,17 +5,44 @@ const url = "https://v2.api.noroff.dev/online-shop";
 
 export function Home() {
   const [posts, setPosts] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+    const [isError, setIsError] = useState(false);
   const navigate = useNavigate();
   
   useEffect(() => {
     async function getData() {
-      const response = await fetch(url);
-      const json = await response.json();
-      
-      setPosts(json.data);
+        try {
+            setIsLoading(true);
+            setIsError(false); 
+
+            const response = await fetch(url);
+            if (!response.ok) {
+                throw new Error("Failed to fetch the data"); 
+            }
+            const json = await response.json();
+
+            setPosts(json.data);
+        } catch (error) {
+            console.error(error);
+            setIsError(true);
+        } finally {
+            setIsLoading(false);
+        }
     }
     getData();
   }, []);
+
+  if (isLoading) {
+    return <div>Loading...</div>;
+}
+
+if (isError) {
+    return <div>Error loading product. Please try again later.</div>;
+}
+
+if (!posts) {
+    return <div>No product data available.</div>;
+}
 
 
   const handleViewProduct = (id) => {
