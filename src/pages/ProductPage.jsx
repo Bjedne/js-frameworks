@@ -1,5 +1,6 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { Star } from "../components/icons";
 
 export function Product() {
     const [data, setData] = useState(null);
@@ -48,6 +49,28 @@ export function Product() {
             <div><strong>{data.title}</strong> </div>
             <div>{data.description}</div>
             <div>${data.price}</div>
+            <div>
+                <div className="flex justify-center">
+                    <h1 className="me-2">Rating:</h1>
+                    <Star />
+                    {data.rating}
+                </div>
+
+                <div className="reviews">
+                    <h3>Reviews:</h3>
+                    {data.reviews && data.reviews.length > 0 ? (
+                        data.reviews.map((review) => (
+                            <div key={review.id} className="review mb-4 border p-2 rounded">
+                                <div><strong>Username:</strong> {review.username}</div>
+                                <div className="flex"><strong>Rating:</strong> <Star /> {review.rating}</div>
+                                <div><strong>Review:</strong> {review.description}</div>
+                            </div>
+                        ))
+                    ) : (
+                        <p>No reviews available for this product.</p>
+                    )}
+                </div>
+            </div>
         </div>
     );
 }
