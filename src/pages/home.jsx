@@ -107,7 +107,7 @@ export function Home() {
               </div>
 
               <button 
-                className="bg-teal-100 p-1 rounded-lg w-1/2 m-auto"
+                className="bg-teal-200 p-1 rounded-lg w-1/2 m-auto"
                 onClick={() => handleViewProduct(post.id)}
               >
                 View product

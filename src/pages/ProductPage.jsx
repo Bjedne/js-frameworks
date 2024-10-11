@@ -77,7 +77,7 @@ export function Product() {
                 <h1 className="me-2">Rating:</h1>
                 <Star /> {data.rating}
             </div>
-
+                <button className="bg-teal-200 p-1 rounded-lg w-1/2 m-auto">Add to cart</button>
             <div className="reviews my-4">
                 <h3>Reviews:</h3>
                 {data.reviews && data.reviews.length > 0 ? (
