@@ -1,13 +1,13 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState, useContext } from "react";
+import { CartContext } from "../context/CartContext";
 import { Star } from "../components/icons";
-import { CartContext } from '../context/CartContext';
 import { Popup } from "../components/popup.jsx";
 
-export function Product ({ product }) {
+export function Product () {
     const { addToCart, showPopup } = useContext(CartContext);
     const handleAddToCart = () => {
-        addToCart(product);
+        addToCart(data.id);
     };
 
     const [data, setData] = useState(null);
