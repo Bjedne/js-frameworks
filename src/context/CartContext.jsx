@@ -7,6 +7,7 @@ export const CartProvider = ({ children }) => {
         const savedCart = localStorage.getItem("cart");
         return savedCart ? JSON.parse(savedCart) : [];
     });
+    const [showPopup, setShowPopup] = useState(false);
 
     useEffect(() => {
         localStorage.setItem("cart", JSON.stringify(cart));
@@ -14,6 +15,8 @@ export const CartProvider = ({ children }) => {
 
     const addToCart = (product) => {
         setCart((prevCart) => {
+            setShowPopup(true);
+        setTimeout(() => setShowPopup(false), 2000);
             const existingProduct = prevCart.find((item) => item.id === product.id);
             if (existingProduct) {
                 return prevCart.map((item) =>
@@ -22,6 +25,7 @@ export const CartProvider = ({ children }) => {
             } else {
                 return [...prevCart, { ...product, quantity: 1 }];
             }
+            
         });
     };
 
@@ -55,7 +59,7 @@ export const CartProvider = ({ children }) => {
     };
 
     return (
-        <CartContext.Provider value={{ cart, addToCart, removeFromCart, increaseQuantity, decreaseQuantity, getTotalPrice, clearCart }}>
+        <CartContext.Provider value={{ cart, addToCart, showPopup, removeFromCart, increaseQuantity, decreaseQuantity, getTotalPrice, clearCart }}>
             {children}
         </CartContext.Provider>
     );

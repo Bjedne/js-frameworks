@@ -54,7 +54,6 @@ export function Product () {
         : 0;
 
     const handleAddToCart = () => {
-        // Add the full product data to the cart with the price and quantity
         addToCart({
             id: data.id,
             title: data.title,
