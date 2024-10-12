@@ -6,9 +6,6 @@ import { Popup } from "../components/popup.jsx";
 
 export function Product () {
     const { addToCart, showPopup } = useContext(CartContext);
-    const handleAddToCart = () => {
-        addToCart(data.id);
-    };
 
     const [data, setData] = useState(null);
     const [isLoading, setIsLoading] = useState(false);
@@ -56,6 +53,17 @@ export function Product () {
         ? Math.round(((data.price - data.discountedPrice) / data.price) * 100)
         : 0;
 
+    const handleAddToCart = () => {
+        // Add the full product data to the cart with the price and quantity
+        addToCart({
+            id: data.id,
+            title: data.title,
+            price: isDiscounted ? data.discountedPrice : data.price,
+            image: data.image.url,
+            quantity: 1
+        });
+    };
+
     return (
         <div className="product-details text-center" id={data.id}>
             <img src={data.image.url} alt={data.title} className="mx-auto size-60 md:size-80 lg:size-96" />
@@ -85,10 +93,11 @@ export function Product () {
                 <h1 className="me-2">Rating:</h1>
                 <Star /> {data.rating}
             </div>
-                <button onClick={handleAddToCart} className="bg-teal-200 p-1 rounded-lg w-1/2 m-auto lg:w-1/4 lg:p-2">
+            <button onClick={handleAddToCart} className="bg-teal-200 p-1 rounded-lg w-1/2 m-auto lg:w-1/4 lg:p-2">
                 Add to cart
-                </button>
-                <Popup message="Product added to cart!" visible={showPopup} />
+            </button>
+            <Popup message="Product added to cart!" visible={showPopup} />
+
             <div className="reviews my-4">
                 <h3>Reviews:</h3>
                 {data.reviews && data.reviews.length > 0 ? (
