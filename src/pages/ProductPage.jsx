@@ -1,11 +1,19 @@
 import { useParams } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import { Star } from "../components/icons";
+import { CartContext } from '../context/CartContext';
+import { Popup } from "../components/popup.jsx";
 
-export function Product() {
+export function Product ({ product }) {
+    const { addToCart, showPopup } = useContext(CartContext);
+    const handleAddToCart = () => {
+        addToCart(product);
+    };
+
     const [data, setData] = useState(null);
     const [isLoading, setIsLoading] = useState(false);
     const [isError, setIsError] = useState(false);
+    
     let { id } = useParams();
 
     useEffect(() => {
@@ -77,7 +85,10 @@ export function Product() {
                 <h1 className="me-2">Rating:</h1>
                 <Star /> {data.rating}
             </div>
-                <button className="bg-teal-200 p-1 rounded-lg w-1/2 m-auto">Add to cart</button>
+                <button onClick={handleAddToCart} className="bg-teal-200 p-1 rounded-lg w-1/2 m-auto lg:w-1/4 lg:p-2">
+                Add to cart
+                </button>
+                <Popup message="Product added to cart!" visible={showPopup} />
             <div className="reviews my-4">
                 <h3>Reviews:</h3>
                 {data.reviews && data.reviews.length > 0 ? (
