@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom"
 import { CartIcon } from "../components/icons"
 
-export function Header() {
+export function Header() {    
     return (
         <header>
             <div className="flex flex-row justify-around mt-7">
@@ -39,10 +39,8 @@ export function Header() {
                         </li>
                     </ul>
                 </nav>
-
                 <div className="relative">
                     <CartIcon />
-                    <p className="absolute -top-2 -right-3 z-10 rounded-full bg-red-500 px-2 text-white hidden">0</p>
                 </div>
             </div>
             <hr className="h-px my-6 bg-gray-400 border-0 dark:bg-gray-700"></hr>

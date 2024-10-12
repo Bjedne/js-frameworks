@@ -5,7 +5,7 @@ import { Footer } from './layouts/footer';
 import { Header } from './layouts/header';
 import { Home } from "./pages/home.jsx";
 import { Product } from './pages/ProductPage.jsx';
-import { Checkout } from './pages/checkout.jsx';
+import { Checkout } from './pages/Checkout.jsx';
 import { CheckoutSuccess } from './pages/CheckoutSuccess.jsx';
 
 
