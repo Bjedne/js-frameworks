@@ -26,7 +26,7 @@ export function Header() {
                     </ul>
                 </button>
 
-                <img src="/images/reactMartLogo.png" className="w-1/2 md:w-2/5 lg:w-1/6 shrink"></img>
+                <img alt ="Site Logo" src="/images/reactMartLogo.png" className="w-1/2 md:w-2/5 lg:w-1/6 shrink"></img>
 
                 <nav className="mb-4 hidden md:flex">
                     <ul className="flex flex-row gap-4 text-xl lg:text-3xl">
