@@ -7,8 +7,8 @@ export function CheckoutPage() {
     const navigate = useNavigate();
 
     const handleCheckout = () => {
-        clearCart();  // Clears the cart after a successful checkout
-        navigate("/checkout-success");  // Navigates to the success page
+        clearCart();
+        navigate("/checkout-success");
     };
 
     return (
