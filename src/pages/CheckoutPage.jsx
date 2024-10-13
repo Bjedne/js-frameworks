@@ -12,8 +12,8 @@ export function CheckoutPage() {
     };
 
     return (
-        <div className="checkout-page">
-            <h1>Shopping Cart</h1>
+        <div className="checkout-page mx-5 lg:w-1/2 lg:mx-auto lg:text-lg">
+            <h1 className="lg:text-2xl lg:mb-2">Shopping Cart</h1>
             {cart.length === 0 ? (
                 <p>Your cart is empty</p>
             ) : (
@@ -52,12 +52,12 @@ export function CheckoutPage() {
                             </div>
                         );
                     })}
-                    <div className="total-price">
+                    <div className="total-price flex justify-end">
                         <h2>Total: ${getTotalPrice().toFixed(2)}</h2>
                     </div>
                     <button 
                         onClick={handleCheckout} 
-                        className="bg-teal-200 p-2 rounded-lg w-full mt-4"
+                        className="bg-teal-200 p-2 rounded-lg mt-4 w-full"
                     >
                         Checkout
                     </button>

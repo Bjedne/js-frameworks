@@ -1,12 +1,11 @@
 import { Routes, Route } from 'react-router-dom';
 import './App.css';
-import { Contact } from "./pages/contact.jsx"
-import { Footer } from './layouts/footer';
-import { Header } from './layouts/header';
+import { Contact } from "./pages/contact.jsx";
 import { Home } from "./pages/home.jsx";
 import { Product } from './pages/ProductPage.jsx';
 import { CheckoutPage } from './pages/CheckoutPage.jsx';
 import { CheckoutSuccess } from './pages/CheckoutSuccess.jsx';
+import { Layout } from './layouts/Layout.jsx';
 
 
 function RouteNotFound() {
@@ -15,8 +14,7 @@ function RouteNotFound() {
 
 function App() { 
   return (
-    <div>
-      <Header />
+    <Layout>
     <Routes>
       <Route index element={<Home />} />
       <Route path="product/:id" element={<Product />} />
@@ -25,8 +23,7 @@ function App() {
       <Route path="checkout-success" element={<CheckoutSuccess />} />
       <Route path="*" element={<RouteNotFound />} />
     </Routes>
-    <Footer />
-    </div>
+    </Layout>
       
   );
 }

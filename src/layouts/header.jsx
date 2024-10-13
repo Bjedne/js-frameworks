@@ -5,7 +5,7 @@ import { CartIcon } from "../components/icons"
 export function Header() {    
     return (
         <header>
-            <div className="flex justify-around mt-7 items-center lg:items-end">
+            <div className="flex justify-around mt-7 items-center md:items-end">
                 <button className="group md:hidden">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-8">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
@@ -26,10 +26,10 @@ export function Header() {
                     </ul>
                 </button>
 
-                <img src="/images/reactMartLogo.png" className="w-1/2 md:w-2/5 lg:w-1/4 shrink"></img>
+                <img src="/images/reactMartLogo.png" className="w-1/2 md:w-2/5 lg:w-1/6 shrink"></img>
 
                 <nav className="mb-4 hidden md:flex">
-                    <ul className="flex flex-row gap-4 text-xl">
+                    <ul className="flex flex-row gap-4 text-xl lg:text-3xl">
                         <li>
                             <Link to="/">Home</Link>
                         </li>
@@ -42,7 +42,7 @@ export function Header() {
                     <CartIcon />
                 </div>
             </div>
-            <hr className="h-px mt-2 bg-gray-400 border-0 dark:bg-gray-700"></hr>
+            <hr className="h-px my-6 bg-gray-400 border-0 dark:bg-gray-700"></hr>
         </header>
     )
 }

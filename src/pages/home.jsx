@@ -74,7 +74,7 @@ export function Home() {
       </div>
 
 
-      <main className="flex flex-col w-screen md:grid md:grid-cols-2 lg:grid-cols-3">
+      <div className="flex flex-col w-screen md:grid md:grid-cols-2 lg:grid-cols-3">
         {filteredPosts.map((post) => {
 
           const isDiscounted = post.discountedPrice < post.price;
@@ -115,7 +115,7 @@ export function Home() {
             </div>
           );
         })}
-      </main>
+      </div>
     </div>
   );
 }
